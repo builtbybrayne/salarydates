@@ -1,0 +1,7 @@
+{
+    "name" : "perchten/salarydates",
+    "version" : "1.0.0",
+    "require": {
+        "nesbot/Carbon": "*"
+    }
+}

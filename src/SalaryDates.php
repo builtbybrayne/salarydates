@@ -19,7 +19,7 @@ class SalaryDates {
         global $argv;
 
         $defaultYear = Carbon::now()->year;
-        $defaultFile = truepath("./salarydates_<year>.csv");
+        $defaultFile = truepath("./reports/salarydates_<year>.csv");
 
 
         $getopt = new Getopt(array(

@@ -36,7 +36,9 @@ The app can be run without arguments, although a number are available. You will 
 	  -v, --verbose           Print additional information to the console.
 	  -y, --year <arg>        Set the year. Default: Current year
 
+###### Output
 
+Calculated dates are written to given file, or the default file under the `/reports` directory.
 
 ## Unit Testing
 
@@ -59,6 +61,7 @@ The main executable is `./salarydates`. This readme can be found at `README.md`.
 	├── src/
 	├── test/
 	├── vendor/
+	├── reports/
 	├── ...
 	├── install
 	└── salarydates

@@ -44,7 +44,7 @@ Calculated dates are written to given file, or the default file under the `/repo
 
 Unit testing uses [PHPUnit](http://phpunit.de/).
 
-For compatibility reasons this project must use PHPUnit v3.7. To assure version compatibility please use the provided phpunit script.
+For compatibility reasons this project must use PHPUnit v3.7. To assure version compatibility please use the provided phpunit script. No arguments are required.
 
 	$ cd <install_dir>
 	$ ./phpunit

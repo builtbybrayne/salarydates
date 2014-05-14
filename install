@@ -1,0 +1,9 @@
+#! /bin/bash
+
+dir=`dirname $0`
+phpPath=`which php`
+
+sed -i .bak s#/myusr/bin/php#$phpPath#g "$dir/salarydates"
+chmod a+x "$dir/salarydates" "$dir/vendor/phpunit/phpunit/phpunit.php" "$dir/phpunit"
+
+echo "done."

@@ -26,7 +26,7 @@ class SalaryDates {
             (new Option("d","debug"))->setDescription("Print debug information to the console."),
             (new Option("f","file",Getopt::REQUIRED_ARGUMENT))->setDescription("Set the output file, which will be overwritten if it exists. Default: ".$defaultFile)->setDefaultValue($defaultFile),
             (new Option("h","help"))->setDescription("Prints help details."),
-            (new Option("p","print"))->setDescription("Print the csv output to the console."),
+            (new Option("p","print"))->setDescription("Print the calculated dates to the console."),
             (new Option("q","quiet"))->setDescription("Suppress all but the most critical or fatal messages. Explicitly requested printouts via the -p flag are unaffected."),
             (new Option("t","dateformat"))->setDescription("Specify the date format. Default: D j/n/Y (i.e. Mon 28/2/2012)")->setDefaultValue("D j/n/Y"),
             (new Option("v","verbose"))->setDescription("Print additional information to the console."),

@@ -90,13 +90,13 @@ In this project I have chosen to apply the latter option, barring feedback to th
 
 The brief stated a 'small' command line utility. There are a few different interpretations of the word 'small'. Based on the requirements for OOD and unit testing I figured that a straight hack script was not going to be an ideal solution. So I decided to go for a standardised project structure that could easily scale. 
 
-Likewise I decided to make use of inheritance and helper classes split into seperate files to illustrate that scalable opinion. If I needed to rush a project out the door for a client and didn't need scalability, I could just have easily reduced the `/src` contents down to a single file or two, utilising functional programming paradigms.
+Likewise I decided to make use of inheritance and helper classes split into seperate files to illustrate that opinionated philosophy. If I needed to rush a project out the door for a client and didn't need scalability, I could just have easily reduced the `/src` contents down to a single file or two, utilising functional programming paradigms.
 
 #### Composer
 
 I decided to use [Composer](https://getcomposer.org/) partly for fun, but also because it allows me to include and version manage some great third party libraries. Particularly 
 
-* [Carbon](https://packagist.org/packages/nesbot/carbon) for the date management 
+* [Carbon](https://packagist.org/packages/nesbot/carbon) for the date calculations 
 * [PHPUnit](https://packagist.org/packages/phpunit/phpunit) for unit testing
 * [GetOpt](https://packagist.org/packages/ulrichsg/getopt-php), for command line options. I perhaps didn't need to use this, but I do feel a command line utility should adhere to standards and expectations if at all possible. Otherwise they can end up being really obtuse.
 

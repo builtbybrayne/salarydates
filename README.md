@@ -38,7 +38,7 @@ The app can be run without arguments, although a number are available. You will 
 	  -v, --verbose           Print additional information to the console.
 	  -y, --year <arg>        Set the year. Default: Current year
 
-###### Output
+##### Output
 
 Calculated dates are written to given file, or the default file under the `/reports` directory.
 
@@ -96,7 +96,7 @@ In this project I have chosen to apply the latter option, barring feedback to th
 
 The brief stated a 'small' command line utility. There are a few different interpretations of the word 'small'. Based on the requirements for OOD and unit testing I figured that a straight hack script was not going to be an ideal solution. So I decided to go for a standardised project structure that could easily scale. 
 
-Likewise I decided to make use of inheritance and helper classes split into seperate files to illustrate that opinionated philosophy. If I needed to rush a project out the door for a client and didn't need scalability, I could just have easily reduced the `/src` contents down to a single file or two, mixing in functional programming paradigms.
+Likewise I decided to make use of inheritance and helper classes split into seperate files to illustrate that opinionated philosophy regarding scalability. If I needed to rush a project out the door for a client and didn't need scalability, I could just have easily reduced the `/src` contents down to a single file or two, mixing in functional programming paradigms.
 
 #### Composer
 

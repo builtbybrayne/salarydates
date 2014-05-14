@@ -1,0 +1,25 @@
+{
+    "name": "perchten/truepath",
+    "type": "library",
+    "description": "Replace PHP's extremely buggy realpath()",
+    "keywords": [
+        "realpath",
+        "truepath",
+        "php",
+        "path"
+    ],
+    "homepage": "https://github.com/perchten/php-truepath",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alastair Brayne",
+            "email": "al@perchten.co.uk",
+            "homepage": "http://perchten.co.uk"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "src/truepath.php"
+        ]
+    }
+}

@@ -3,6 +3,7 @@
 use Perchten\SalaryDates;
 
 include __DIR__."/vendor/autoload.php";
+date_default_timezone_set('Europe/London');
 
 $sd = new SalaryDates($argv);
 $sd->run();

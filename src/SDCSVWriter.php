@@ -4,20 +4,44 @@ namespace Perchten;
 use Monolog\Logger;
 use __;
 
+/**
+ * Responsible for writing the dates to a csv file, with the following rules
+ *
+ * - The output should be a CSV file containing the payment dates for this year.
+ * - The CSV file should contain a column for the month name, a column that contains the salary payment date for that month, and a column that contains the bonus payment date.
+ *
+ * Class SDCSVWriter
+ * @package Perchten
+ */
 class SDCSVWriter extends SDBase {
 
     private $printConfig;
 
+    /**
+     * If PrintConfig has autoCreateFiles set to true
+     * @param SDPrintConfig $printConfig
+     * @param SDConfig $SDConfig
+     */
     public function __construct(SDPrintConfig $printConfig,SDConfig $SDConfig=null)
     {
         parent::__construct($SDConfig);
         $this->printConfig = $printConfig;
         if ( $this->printConfig->autoCreateFiles ) {
-            $this->ensureFileExists($printConfig->file);
+            $this->ensureFileStructureExists($printConfig->file);
         }
     }
 
+
+    /**
+     * Write the data to the configured file
+     *
+     * @param $year
+     * @param $dates
+     * @throws Exception if the CSV file could not be written or was only partically written
+     */
     public function write($year,$dates){
+
+        $this->ensureFileStructureExists($this->printConfig->file);
 
         $p = $this->printConfig->printtoconsole;
         $pout = "";
@@ -50,12 +74,12 @@ class SDCSVWriter extends SDBase {
     }
 
     /**
-     * Ensures that the $file to write to exists and is writeable. If it does not exist, it is created
+     * Ensures that the directory structure for the $file exists and is writeable. If it does not exist, it is created
      *
      * @param $file
-     * @throws Exception
+     * @throws Exception if file cannot be written for any reason
      */
-    private function ensureFileExists($file) {
+    private function ensureFileStructureExists($file) {
         $file = truepath($file);
         if ( !$this->checkFileExistsAndWriteable($file) ) {
             $this->logger->addAlert("".$file." cannot be written to. Check the parent folder permissions");
@@ -84,6 +108,13 @@ class SDCSVWriter extends SDBase {
         }
     }
 
+    /**
+     * Utility to pad each String element in an array to the same size
+     *
+     * @param $array
+     * @param int $size
+     * @return array with all elements padded to same size
+     */
     private function padArray($array,$size=10){
         return __::map($array,function($x) use($size) {return str_pad($x,$size);});
     }

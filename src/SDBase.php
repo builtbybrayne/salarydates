@@ -5,6 +5,12 @@ use Monolog\Formatter\LineFormatter;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+/**
+ * Parent class for the main workhorse classes. Mainly exposes logging utilities
+ *
+ * Class SDBase
+ * @package Perchten
+ */
 class SDBase {
 
     const NOTICE_FORMAT = "-- %message%\n";
@@ -14,6 +20,9 @@ class SDBase {
     protected $logger;
     protected $SDConfig;
 
+    /**
+     * @param SDConfig $SDConfig
+     */
     function __construct(SDConfig $SDConfig=null)
     {
         $this->SDConfig = $SDConfig ?: new SDConfig();
@@ -21,6 +30,22 @@ class SDBase {
 
     }
 
+    /**
+     * Called from the constructor by default, but also statically exposed as a factor for one-off logging requirements
+     *
+     * Standard logger operates as follows:
+     *
+     * If $debug is set, all log level are displayed
+     * If $verbose is set, all log levels from INFO upwards are displayed
+     * If $quiet is set, all log levels below ALERT are supressed
+     * If no specific configuration is given, all log levels from NOTICE upwards are printed.
+     *
+     * $debug and $verbose also change the format of the display to show additional information about where the logging call came from
+     *
+     * @param $class
+     * @param $SDConfig
+     * @return Logger
+     */
     public static function getLogger($class,$SDConfig) {
 
         $formatter = new LineFormatter(null,null,true);

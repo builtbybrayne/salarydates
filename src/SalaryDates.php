@@ -6,8 +6,14 @@ use Monolog\Logger;
 use Ulrichsg\Getopt\Getopt;
 use Ulrichsg\Getopt\Option;
 
-include "SDInit.php";
-
+/**
+ * Main class for calculating the payment dates.
+ *
+ * Responsible for gathering the options and then calling the workhorse classes correctly.
+ *
+ * Class SalaryDates
+ * @package Perchten
+ */
 class SalaryDates {
 
     private $SDConfig;
@@ -15,6 +21,9 @@ class SalaryDates {
     private $year;
     private $logger;
 
+    /**
+     * Gather the options and check the environment
+     */
     public function __construct(){
         global $argv;
 
@@ -72,10 +81,11 @@ class SalaryDates {
                 "PrintConfig" => $this->printConfig),"return,nopre"
             ));
 
-
-
     }
 
+    /**
+     * Run the salary date calculator and write the results to the configured file
+     */
     public function run() {
 
         $dateCalculator = new SDDateCalculator($this->SDConfig);

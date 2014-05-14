@@ -1,6 +1,12 @@
 <?php
 namespace Perchten;
 
+/**
+ * Utility class to collect file writing and print configuration
+ *
+ * Class SDPrintConfig
+ * @package Perchten
+ */
 class SDPrintConfig {
 
     public $file;

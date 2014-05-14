@@ -68,6 +68,23 @@ The main executable is `./salarydates`. This readme can be found at `README.md`.
 	
 # Design Decisions
 
+#### Interpretation of the brief
+
+###### The Rules
+
+* Sales staff get a regular monthly fixed base salary and a monthly bonus.
+* The base salaries are paid on the last day of the month unless that day is a Saturday or a Sunday (weekend) in which case they are paid on the friday before.
+* On the 15th of every month bonuses are paid for the previous month, unless that day is a weekend. In that case, they are paid the first Wednesday after the 15th.
+* The output of the utility should be a CSV file containing the payment dates for this year. The CSV file should contain a column for the month name, a column that contains the salary payment date for that month, and a column that contains the bonus payment date.
+
+
+###### Treatment of ambiguities
+
+The bonuses are paid one month in arrears. It is unclear from the brief whether the outputted date in a row in the csv should be:
+* the actual payment date that occurs in the month, but pays for the previous month or
+* the date on which that month's bonus is paid, which will display a date in the next month 
+ 
+
 #### Project Structure and Size
 
 The brief stated a 'small' command line utility. There are a few different interpretations of the word 'small'. Based on the requirements for OOD and unit testing I figured that a straight hack script was not going to be an ideal solution. So I decided to go for a standardised project structure that could easily scale. 

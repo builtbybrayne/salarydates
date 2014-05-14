@@ -10,21 +10,6 @@ use Monolog\Logger;
  * - The base salaries are paid on the last day of the month unless that day is a Saturday or a Sunday (weekend) in which case they are paid on the friday before.
  * - On the 15th of every month bonuses are paid for the previous month, unless that day is a weekend. In that case, they are paid the first Wednesday after the 15th.
  *
- * USAGE:
- *
- * Static:
- *
- *  DateCalculator::get([$year]);
- *
- *
- * Object:
- *
- *  $datecalculator = new DateCalculator([$year]);
- *  $datecalculator->setYear([$year]); // recalculate for another year
- *  $dates = $datecalculator->getDates();
- *  $year = $datecalculator->getYear();
- *
- *
  */
 class SDDateCalculator extends SDBase {
 

@@ -31,8 +31,8 @@ class SDCSVWriter extends SDBase {
         foreach ( $dates as $month => $datePair ) {
             $row = array(
                 $this->months[$month],
-                $datePair[0]->format($this->printConfig->format),
-                $datePair[1]->format($this->printConfig->format)
+                $datePair[0]->format($this->printConfig->dateformat),
+                $datePair[1]->format($this->printConfig->dateformat)
             );
             $this->logger->addDebug("writing row ".neat_html($row,"return,nopre")." to ".$this->printConfig->file);
             if ( !fputcsv($handle, $row,",",'"') ) {

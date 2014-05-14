@@ -7,9 +7,9 @@ Salary Date calculator for BrightPearl
 
 ## Installation
 
-`git clone` or download source from [https://github.com/perchten/salarydates](https://github.com/perchten/salarydates) to any writeable directory.
+Download source from [https://github.com/perchten/salarydates](https://github.com/perchten/salarydates) of `git clone` to any writeable directory.
 
-	git clone git@github.com:perchten/salarydates.git
+	git clone git@github.com:perchten/salarydates.git <install_dir>
 
 You will need to make the `install` script executable, and then run it
 
@@ -20,17 +20,19 @@ You will need to make the `install` script executable, and then run it
 
 ## Run the application
 
+The app can be run without arguments, although a number are available. You will be prompted to accept the defaults if you run without arguments.
+
     $ cd <install_dir>
     $ ./salarydates
 
-## Options
+##### Arguments
 
 	  -d, --debug             Print debug information to the console.
 	  -f, --file <arg>        Set the output file, which will be overwritten if it exists. Default: ./salarydates_<year>.csv
 	  -h, --help              Prints help details.
 	  -p, --print             Print the calculated dates to the console.
 	  -q, --quiet             Suppress all but the most critical or fatal messages. Explicitly requested printouts via the -p flag are unaffected.
-	  -t, --dateformat        Specify the date format. Default: D j/n/Y (i.e. Mon 28/2/2012)
+	  -t, --dateformat <arg>  Specify the date format. Default: D j/n/Y (i.e. Mon 28/2/2012)
 	  -v, --verbose           Print additional information to the console.
 	  -y, --year <arg>        Set the year. Default: Current year
 

@@ -28,7 +28,7 @@ class SalaryDates {
             (new Option("h","help"))->setDescription("Prints help details."),
             (new Option("p","print"))->setDescription("Print the calculated dates to the console."),
             (new Option("q","quiet"))->setDescription("Suppress all but the most critical or fatal messages. Explicitly requested printouts via the -p flag are unaffected."),
-            (new Option("t","dateformat"))->setDescription("Specify the date format. Default: D j/n/Y (i.e. Mon 28/2/2012)")->setDefaultValue("D j/n/Y"),
+            (new Option("t","dateformat",Getopt::REQUIRED_ARGUMENT))->setDescription("Specify the date format. Default: D j/n/Y (i.e. Mon 28/2/2012)")->setDefaultValue("D j/n/Y"),
             (new Option("v","verbose"))->setDescription("Print additional information to the console."),
             (new Option("y","year",Getopt::REQUIRED_ARGUMENT))->setDescription("Set the year. Default: Current year (".$defaultYear.")")->setDefaultValue($defaultYear)
         ));
@@ -46,9 +46,10 @@ class SalaryDates {
 
 
         $getopt->parse();
-
-
-
+        if ( $getopt->getOption("h") ) {
+            echo $getopt->getHelpText();
+            exit;
+        }
 
         $this->SDConfig = new SDConfig();
         $this->SDConfig->verbose = $getopt->getOption("v")?:$getopt->getOption("d");
@@ -64,18 +65,14 @@ class SalaryDates {
         $this->printConfig->file = preg_replace("/<year>/",$this->year,$this->printConfig->file);
 
 
-        $this->logger = SDBase::getLogger(get_class(),$this->SDConfig->verbose,$this->SDConfig->debug);
-        $this->logger->addDebug("Config is: \n".neat_html(array(
+        $this->logger = SDBase::getLogger(get_class(),$this->SDConfig);
+        $this->logger->addInfo("Config is: \n".neat_html(array(
                 "Year" => $this->year,
-                "File" => $this->file,
-                "Print" => $this->print,
-                "SDConfig" => $this->SDConfig),"return,nopre"
+                "SDConfig" => $this->SDConfig,
+                "PrintConfig" => $this->printConfig),"return,nopre"
             ));
 
-        if ( $getopt->getOption("h") ) {
-            echo $getopt->getHelpText();
-            exit;
-        }
+
 
     }
 

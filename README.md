@@ -106,7 +106,7 @@ I also took the opportunity to upload [a few additional useful packages](https:/
 
 I figured the easiest and cleanest way to expose the executable was to keep all the core code in the src directory and simply expose a simple runnable script. 
 
-That also involved creating a simple `install` script to ensure the right paths for PHP. But it also had the added benefit of allowing logical exposure of the desired `PHPUnit` script, which is version-limited for compatibility with `Composer`.
+That also involved creating a simple `install` script to ensure the right paths for PHP and permissions for the executables. But it also had the added benefit of allowing logical exposure of the desired `PHPUnit` script, which is version-limited for compatibility with `Composer`.
  
 	
 # Author

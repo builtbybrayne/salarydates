@@ -68,9 +68,7 @@ The main executable is `./salarydates`. This readme can be found at `README.md`.
 	
 # Design Decisions
 
-#### Interpretation of the brief
-
-###### The Rules
+#### The Rules
 
 * Sales staff get a regular monthly fixed base salary and a monthly bonus.
 * The base salaries are paid on the last day of the month unless that day is a Saturday or a Sunday (weekend) in which case they are paid on the friday before.
@@ -78,11 +76,14 @@ The main executable is `./salarydates`. This readme can be found at `README.md`.
 * The output of the utility should be a CSV file containing the payment dates for this year. The CSV file should contain a column for the month name, a column that contains the salary payment date for that month, and a column that contains the bonus payment date.
 
 
-###### Treatment of ambiguities
+#### Treatment of ambiguities
 
 The bonuses are paid one month in arrears. It is unclear from the brief whether the outputted date in a row in the csv should be:
+
 * the actual payment date that occurs in the month, but pays for the previous month or
 * the date on which that month's bonus is paid, which will display a date in the next month 
+
+In this project I have chosen to apply the latter option, barring feedback to the contrary.
  
 
 #### Project Structure and Size
@@ -94,15 +95,18 @@ Likewise I decided to make use of inheritance and helper classes split into sepe
 #### Composer
 
 I decided to use [Composer](https://getcomposer.org/) partly for fun, but also because it allows me to include and version manage some great third party libraries. Particularly 
+
 * [Carbon](https://packagist.org/packages/nesbot/carbon) for the date management 
 * [PHPUnit](https://packagist.org/packages/phpunit/phpunit) for unit testing
-* [GetOpt](https://packagist.org/packages/ulrichsg/getopt-php), which I perhaps didn't need to use, but I do feel a command line utility should really adhere to standards and expectations if at all possible. Otherwise they can end up being really obtuse
+* [GetOpt](https://packagist.org/packages/ulrichsg/getopt-php), for command line options. I perhaps didn't need to use this, but I do feel a command line utility should adhere to standards and expectations if at all possible. Otherwise they can end up being really obtuse.
 
-I also took the opportunity to upload [a few additional useful packages](https://packagist.org/packages/perchten/) I've collected and wanted to expose for easier integration.
+I also took the opportunity to upload [a few additional useful packages](https://packagist.org/packages/perchten/) I've collected and wanted to expose for easier integration in the future and elsewhere.
 
-#### Executable
+#### Executables
 
 I figured the easiest and cleanest way to expose the executable was to keep all the core code in the src directory and simply expose a simple runnable script. 
+
+That also involved creating a simple `install` script to ensure the right paths for PHP. But it also had the added benefit of allowing logical exposure of the desired `PHPUnit` script, which is version-limited for compatibility with `Composer`.
  
 	
 # Author

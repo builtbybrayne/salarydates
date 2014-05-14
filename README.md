@@ -57,7 +57,7 @@ The project uses [Composer](https://getcomposer.org/) for dependency management 
 
 Generated report files are written to the `/report` directory by default, unless a file is manually specified.
 
-The main executable, install script and readme can be found at root level.
+The main executables and readme can be found at root level.
 
 	.
 	├── src/
@@ -66,6 +66,7 @@ The main executable, install script and readme can be found at root level.
 	├── reports/
 	├── ...
 	├── install
+	├── phpunit
 	├── README.md
 	└── salarydates
 	

@@ -55,6 +55,8 @@ This project follows a standard directory structure with a `/src` directory cont
 
 The project uses [Composer](https://getcomposer.org/) for dependency management and autoloading. Loaded libraries are in the `/vendor` directory.
 
+Generated report files are written to the `/report` directory by default, unless a file is manually specified.
+
 The main executable is `./salarydates`. This readme can be found at `README.md`.
 
 	.

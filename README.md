@@ -1,7 +1,7 @@
 php-salarydates
 ===============
 
-Salary Date calculator for BrightPearl.
+Salary Date calculator.
 
 This is proprietary code for a private project shared on GitHub for demonstration purposes, and as such is of absolutely no use to anyone in the wild at all... probably.
 
